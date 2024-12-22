@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Restaurant</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='format.css') }}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Bellefair" rel="stylesheet">
+</head>
+<body>
+    <header class="header">Edit Restaurant</header>
+    <div class="container">
+        <div class="form-card">
+            <h1 class="form-title">Edit Restaurant Name</h1>
+            <form method="POST" action="{{ url_for('editRestaurantName', restaurant_id=restaurants.id) }}">
+                <label for="edit_rest_name">New Restaurant Name:</label>
+                <input type="text" id="edit_rest_name" name="edit_rest_name" class="form-input" 
+                       placeholder="{{ restaurants.name }}" required>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn submit-btn">Submit</button>
+                    <a href="{{ url_for('showRestaurantNames') }}" class="btn cancel-btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

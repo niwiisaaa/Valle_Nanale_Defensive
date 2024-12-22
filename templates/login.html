@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Management System</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='login.css')}}">
+</head>
+<body>
+    <div class="header">
+        RESTAURANT MANAGEMENT SYSTEM
+    </div>
+    
+    <div class="login-container">
+        <div class="login-title">LOGIN TO YOUR ACCOUNT</div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="alert alert-info">
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        {% endwith %}
+        
+        <form action="{{ url_for('login') }}" method="POST">
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            
+            <div class="input-group password-input">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            
+            <button type="submit" class="login-button">LOGIN</button>
+        </form>
+    </div>
+    
+    <a href="{{ url_for('showRestaurantNames') }}" class="back-link">Back to Restaurants</a>
+</body>
+</html>

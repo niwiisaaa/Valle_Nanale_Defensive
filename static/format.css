@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: url('home.png') center/cover;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    background-color: #ff7f7f;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* Adjust for header height */
+    width: 100%;
+}
+
+.form-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.form-title {
+    color: #ff6b6b;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.restaurant-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    background-color: #ffe4e1;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    flex: 1;
+}
+
+.submit-btn {
+    background-color: #4169e1;
+}
+
+.submit-btn:hover {
+    background-color: #3157c7;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}
+
+.btn.cancel-btn {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.alert {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.alert-info {
+    background-color: #e9f5ff;
+    color: #3178c6;
+}
+
+.form-card {
+    margin: 20px;
+}
+
+.form-card label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-card input, .form-card button {
+    margin-bottom: 10px;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .form-card {
+        padding: 20px;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-card {
+        padding: 15px;
+    }
+
+    .form-input {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+

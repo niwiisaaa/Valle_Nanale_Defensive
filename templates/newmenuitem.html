@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Menu Item</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='format.css') }}">
+</head>
+<body>
+    <div class="header">
+        RESTAURANT MANAGEMENT SYSTEM
+    </div>
+
+    <div class="container">
+        <div class="form-card">
+            <h2 class="form-title">Enter New Item for {{ restaurant.name }}</h2>
+            
+            <!-- Display Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="alert alert-info">
+                        <ul>
+                            {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="{{ url_for('createMenuItem', restaurant_id=restaurant.id) }}" class="restaurant-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter item name" required class="form-input">
+
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" placeholder="Enter item price" required class="form-input">
+
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" placeholder="Enter item description" class="form-input">
+
+                <label for="course">Course:</label>
+                <input type="text" id="course" name="course" placeholder="Enter item course" class="form-input">
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn submit-btn">Submit</button>
+                    <a href="{{ url_for('showMenuItem', restaurant_id=restaurant.id) }}" class="btn cancel-btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

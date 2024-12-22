@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Menu Item</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='format.css') }}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Bellefair" rel="stylesheet">
+</head>
+<body>
+    <header class="header">Edit Menu Item</header>
+    <div class="container">
+        <div class="form-card">
+            <h1 class="form-title">Edit Menu Item for {{ restaurant.name }}</h1>
+            <form method="POST" action="{{ url_for('editMenuItem', restaurant_id=restaurant.id, menu_id=item.id) }}">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="{{ item.name }}">
+
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" class="form-input" placeholder="{{ item.description }}">
+
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" class="form-input" placeholder="{{ item.price }}">
+
+                <label for="course">Course:</label>
+                <input type="text" id="course" name="course" class="form-input" placeholder="{{ item.course }}">
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn submit-btn">Submit</button>
+                    <a href="{{ url_for('showMenuItem', restaurant_id=restaurant.id) }}" class="btn cancel-btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

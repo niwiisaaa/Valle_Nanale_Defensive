@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Management System</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        RESTAURANT MANAGEMENT SYSTEM
+    </div>
+
+    <div class="restaurant-container">
+        {% for restaurant in restaurants %}
+        <div class="restaurant-card">
+            <h2 class="restaurant-name">{{ restaurant.name }}</h2>
+            <div class="button-group">
+                <a href="{{ url_for('showMenuItem', restaurant_id=restaurant.id) }}" class="btn menu-btn">Menu</a>
+                <a href="{{ url_for('editRestaurantName', restaurant_id=restaurant.id) }}" class="btn edit-btn">Edit Name</a>
+                <a href="{{ url_for('deleteRestaurantName', restaurant_id=restaurant.id) }}" class="btn delete-btn">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="action-buttons">
+        <a href="{{ url_for('createRestaurantName') }}" class="btn add-btn">ADD A NEW RESTAURANT</a>
+        <a href="{{ url_for('login') }}" class="btn logout-btn">LOG OUT</a>
+    </div>
+</body>
+</html>
